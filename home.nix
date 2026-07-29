@@ -6,6 +6,8 @@ in {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   
+  home.file.".wakatime.cfg".source = ./.wakatime.cfg
+
   home.packages = with pkgs; [
     fastfetch
     nnn
@@ -15,6 +17,8 @@ in {
     #font-awesome    
     pkgsold.gnomeExtensions.raccoon-launcher
     neovim
+    
+    wakatime-cli
 
     localsend
     godot
