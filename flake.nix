@@ -2,7 +2,7 @@
 	description = "A test NixOS flake";
 	inputs = {
  		nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-		nixpkgsold.url = "github:NixOS/nixpkgs?rev=7525d999cd850b9a488817abc89c75dc733acf17";
+		nixpkgsnew.url = "github:NixOS/nixpkgs?rev=7525d999cd850b9a488817abc89c75dc733acf17";
 		#noctalia = {
 		#	url = "github:noctalia-dev/noctalia";
 		#	inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +14,7 @@
 
 	};
 
-	outputs = {self, nixpkgs,nixpkgsold, home-manager,...}@inputs: {
+	outputs = {self, nixpkgs,nixpkgsnew, home-manager,...}@inputs: {
 		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			modules = [
 				./configuration.nix
