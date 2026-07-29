@@ -6,7 +6,7 @@ in {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   
-  home.file.".wakatime.cfg".source = ./.wakatime.cfg
+  #home.file.".wakatime.cfg".source = ./.wakatime.cfg;
 
   home.packages = with pkgs; [
     fastfetch
