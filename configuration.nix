@@ -105,6 +105,10 @@
     inputs.agenix.packages."${system}".default
   ];
   
+  age.identityPaths = [
+    "/home/ethan/.ssh/id_ed25519"
+  ];
+
   age.secrets = {
     wakatime = {
       file = ./secrets/wakatime.age;
