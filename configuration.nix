@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs,inputs, ... }:
 
 {
   imports =
@@ -102,7 +102,16 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     htop
+    inputs.agenix.packages."${system}".default
   ];
+  
+  age.secrets = {
+    wakatime = {
+      file = ./secrets/wakatime.age;
+      path = "/home/ethan/.wakatime.cfg";
+      owner = "ethan";
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
