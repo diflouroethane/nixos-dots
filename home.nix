@@ -11,6 +11,7 @@ in {
   home.packages = with pkgs; [
     fastfetch
     nnn
+    eza
     gnomeExtensions.paperwm
     #swaybg
     #xwayland-satellite    
