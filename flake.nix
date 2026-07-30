@@ -4,6 +4,7 @@
  		nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 		nixpkgsnew.url = "github:NixOS/nixpkgs?rev=7525d999cd850b9a488817abc89c75dc733acf17";
 		agenix.url = "github:ryantm/agenix";
+		agenix.inputs.nixpkgs.follows = "nixpkgs";
 		#noctalia = {
 		#	url = "github:noctalia-dev/noctalia";
 		#	inputs.nixpkgs.follows = "nixpkgs";

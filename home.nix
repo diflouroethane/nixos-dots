@@ -41,7 +41,16 @@ in {
     package = pkgs.ghostty;
     enableBashIntegration = true;
   };
-  
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscode.fhs;
+    extensions = with pkgs.vscode-extensions; [
+      wakatime.vscode-wakatime
+      bbenoist.nix
+    ];
+  };
+
   dconf.settings."org/gnome/shell" = {
     disable-user-extensions = false;
     enabled-extensions = with pkgs.gnomeExtensions; [
