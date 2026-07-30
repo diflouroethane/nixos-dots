@@ -6,7 +6,7 @@ in {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
   
-  #home.file.".wakatime.cfg".source = ./.wakatime.cfg;
+#  home.file.".bashrc".source = ./.bashrc;
 
   home.packages = with pkgs; [
     fastfetch
@@ -20,6 +20,8 @@ in {
     neovim
     
     wakatime-cli
+    
+    prismlauncher
 
     localsend
     godot
