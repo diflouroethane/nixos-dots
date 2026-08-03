@@ -22,7 +22,7 @@
 			specialArgs = {inherit inputs;};
 			modules = [
 				./configuration.nix
-				nvf.homeManagerModules.default
+				
 				agenix.nixosModules.default	
 				home-manager.nixosModules.home-manager
 				{
@@ -30,6 +30,7 @@
 					home-manager.useUserPackages = true;
 					home-manager.extraSpecialArgs = {inherit inputs;};
 					home-manager.users.ethan = import ./home.nix;
+					home-manager.sharedModules = [nvf.homeManagerModules.default];
 				}
 			];
 		};

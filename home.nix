@@ -12,6 +12,9 @@ in {
     fastfetch
     nnn
     eza
+    ncdu
+    lazygit
+
     gnomeExtensions.paperwm
     #swaybg
     #xwayland-satellite    
