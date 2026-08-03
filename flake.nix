@@ -5,6 +5,7 @@
 		nixpkgsnew.url = "github:NixOS/nixpkgs?rev=7525d999cd850b9a488817abc89c75dc733acf17";
 		agenix.url = "github:ryantm/agenix";
 		agenix.inputs.nixpkgs.follows = "nixpkgs";
+		nvf.url = "github:notashelf/nvf";
 		#noctalia = {
 		#	url = "github:noctalia-dev/noctalia";
 		#	inputs.nixpkgs.follows = "nixpkgs";
@@ -16,11 +17,12 @@
 
 	};
 
-	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, ...}@inputs: {
+	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, ...}@inputs: {
 		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
 				./configuration.nix
+				nvf.homeManagerModules.default
 				agenix.nixosModules.default	
 				home-manager.nixosModules.home-manager
 				{

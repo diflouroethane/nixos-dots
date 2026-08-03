@@ -17,7 +17,7 @@ in {
     #xwayland-satellite    
     #font-awesome    
     pkgsold.gnomeExtensions.raccoon-launcher
-    neovim
+    #neovim
     
     wakatime-cli
     
@@ -42,6 +42,25 @@ in {
     enable = true;
     package = pkgs.ghostty;
     enableBashIntegration = true;
+  };
+  
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.nvf = {
+    enable = true;
+
+    settings = {
+      vim = {
+        viAlias = false;
+        vimAlias = true;
+        lsp.enable = true;
+        utility.vim-wakatime.enable = true;
+      };
+    };
   };
 
   programs.vscode = {
