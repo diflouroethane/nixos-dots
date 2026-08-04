@@ -71,6 +71,10 @@ in {
     ];
   };
 
+  dconf.settings."org/gnome/desktop/input-sources" = {
+    xkb-options = ["caps:escape"];
+  };
+
 #  programs.noctalia = {
 #    enable = true;
 #
