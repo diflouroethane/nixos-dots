@@ -27,7 +27,7 @@ in {
     prismlauncher
 
     localsend
-    godot
+    godot_4_7
 
     zip
     xz
