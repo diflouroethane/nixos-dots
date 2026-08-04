@@ -40,7 +40,10 @@ in {
     pciutils
     usbutils
   ];
+  
+ # xdg.enable = true;
 
+  #xdg.configFile."nvim/init.vim".source = ./config/init.vim;
 
   programs.ghostty = {
     enable = true;

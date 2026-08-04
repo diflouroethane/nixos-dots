@@ -6,7 +6,9 @@
 		agenix.url = "github:ryantm/agenix";
 		agenix.inputs.nixpkgs.follows = "nixpkgs";
 		nvf.url = "github:notashelf/nvf";
+                nvf.inputs.nixpkgs.follows = "nixpkgs";
 		#noctalia = {
+
 		#	url = "github:noctalia-dev/noctalia";
 		#	inputs.nixpkgs.follows = "nixpkgs";
 		#};
