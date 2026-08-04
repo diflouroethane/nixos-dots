@@ -5,7 +5,11 @@ pkgsold = inputs.nixpkgsnew.legacyPackages.x86_64-linux;
 in {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
-  
+ 
+  imports = [
+    #inputs.noctalia.homeModules.default
+    ./config/nvf.nix
+  ]; 
 #  home.file.".bashrc".source = ./.bashrc;
 
   home.packages = with pkgs; [
@@ -37,9 +41,6 @@ in {
     usbutils
   ];
 
-  imports = [
-    #inputs.noctalia.homeModules.default
-  ];
 
   programs.ghostty = {
     enable = true;
@@ -51,19 +52,6 @@ in {
     enable = true;
     enableBashIntegration = true;
     nix-direnv.enable = true;
-  };
-
-  programs.nvf = {
-    enable = true;
-
-    settings = {
-      vim = {
-        viAlias = false;
-        vimAlias = true;
-        lsp.enable = true;
-        utility.vim-wakatime.enable = true;
-      };
-    };
   };
 
   programs.vscode = {
