@@ -48,10 +48,12 @@
     settings = {
       default_session = {
         command = "${config.programs.niri.package}/bin/niri-session";
-        user = "ethan";
+ #       user = "ethan";
       };
     };
   };
+
+  programs.regreet.enable = true;
   
   #systemd.user.services.niri.enableDefaultPath = false;
 

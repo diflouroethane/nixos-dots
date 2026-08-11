@@ -44,9 +44,13 @@ in {
     usbutils
   ];
   
+  home.file.".wallpapers".source = ./wallpapers;
+
+    
   xdg.enable = true;
+  
 
-
+  
   xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
   #xdg.configFile."waybar/config.jsonc".source = ./config/waybar.jsonc;
  # xdg.configFile."waybar/style.css".source = ./config/style.css;
