@@ -5,7 +5,8 @@ pkgsold = inputs.nixpkgsnew.legacyPackages.x86_64-linux;
 in {
   home.username = "ethan";
   home.homeDirectory = "/home/ethan";
- 
+  #home.pointerCursor = "Vanilla-DMZ"; 
+  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
   imports = [
     #inputs.noctalia.homeModules.default
     ./config/nvf.nix
@@ -45,8 +46,8 @@ in {
 
 
   xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
-  xdg.configFile."waybar/config.jsonc".source = ./config/waybar.jsonc;
-  xdg.configFile."waybar/style.css".source = ./config/style.css;
+  #xdg.configFile."waybar/config.jsonc".source = ./config/waybar.jsonc;
+ # xdg.configFile."waybar/style.css".source = ./config/style.css;
   #xdg.configFile."niri/config.kdl".force = true;
   
   programs.ghostty = {
@@ -127,7 +128,48 @@ in {
   programs.swaylock.enable = true;
   programs.waybar = {
     enable = true;
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "eDP-1"
+        ];
+        modules-left = [ "niri/workspaces" "sway/mode" "wlr/taskbar" ];
+        modules-center = [ "niri/window" "custom/hello-from-waybar" ];
+        modules-right = [ "mpd" "clock" "temperature" ];
+
+        "niri/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+        };
+        "custom/hello-from-waybar" = {
+          format = "hello {}";
+          max-length = 40;
+          interval = "once";
+          exec = pkgs.writeShellScript "hello-from-waybar" ''
+            echo "from within waybar"
+          '';
+        };
+      };
+    };
+    style = ''
+      * {
+        border: none;
+        border-radius: 0;
+        font-family: Source Code Pro;
+      }
+      window#waybar {
+        background: #16191C;
+        color: #AAB2BF;
+      }
+      #workspaces button {
+        padding: 0 5px;
+      }
+    '';
   };
+
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;

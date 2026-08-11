@@ -8,12 +8,12 @@
     // Choose the order of the modules
     "modules-left": [
         "niri/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/media"
+        "niri/mode",
+        //"sway/scratchpad",
+        //"custom/media"
     ],
     "modules-center": [
-        "sway/window"
+        "niri/window"
     ],
     "modules-right": [
         "mpd",

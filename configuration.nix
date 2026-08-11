@@ -93,6 +93,10 @@
       tree
     ];
   };
+  
+  fonts.packages = with pkgs; [
+    font-awesome_4
+  ];
 
   programs.firefox.enable = true;
 
