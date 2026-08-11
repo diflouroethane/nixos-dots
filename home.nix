@@ -45,6 +45,8 @@ in {
 
 
   xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
+  xdg.configFile."waybar/config.jsonc".source = ./config/waybar.jsonc;
+  xdg.configFile."waybar/style.css".source = ./config/style.css;
   #xdg.configFile."niri/config.kdl".force = true;
   
   programs.ghostty = {
@@ -123,7 +125,9 @@ in {
   programs.alacritty.enable = true;
   programs.fuzzel.enable = true;
   programs.swaylock.enable = true;
-  programs.waybar.enable = true;
+  programs.waybar = {
+    enable = true;
+  };
   services.mako.enable = true;
   services.swayidle.enable = true;
   services.polkit-gnome.enable = true;

@@ -87,6 +87,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "input"
     ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
