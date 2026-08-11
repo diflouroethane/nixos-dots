@@ -22,7 +22,7 @@ in {
     gnomeExtensions.paperwm
     swaybg
     xwayland-satellite    
-    font-awesome    
+    font-awesome_4    
     pkgsold.gnomeExtensions.raccoon-launcher
     #neovim
     
@@ -43,9 +43,12 @@ in {
   
   xdg.enable = true;
 
-  xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
 
+  xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
+  #xdg.configFile."niri/config.kdl".force = true;
+  
   programs.ghostty = {
+
     enable = true;
     package = pkgs.ghostty;
     enableBashIntegration = true;
