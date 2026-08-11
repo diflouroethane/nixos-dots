@@ -19,6 +19,8 @@ in {
     eza
     ncdu
     lazygit
+    
+    pavucontrol
 
     gnomeExtensions.paperwm
     swaybg
@@ -132,13 +134,35 @@ in {
       mainBar = {
         layer = "top";
         position = "top";
+        spacing = 5;
         height = 30;
         output = [
           "eDP-1"
         ];
-        modules-left = [ "niri/workspaces" "sway/mode" "wlr/taskbar" ];
-        modules-center = [ "niri/window" "custom/hello-from-waybar" ];
-        modules-right = [ "mpd" "clock" "temperature" ];
+        modules-left = [ "niri/workspaces" "wlr/taskbar" "niri/window" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "temperature" "pulseaudio" "battery" ];
+        "pulseaudio" = {
+          format = "volume: {volume}%";
+          on-click = "pavucontrol";
+        };
+        "clock" = {
+          format-alt = "{:%Y-%m-%d}";
+        };
+        "battery" = {
+          bat = "BAT0";
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+
+          format = "{capacity}% {icon}";
+          format-full = "{capacity}% {icon}";
+          format-charging = "{capacity}% 󰃨";
+          format-plugged = "{capacity}% ";
+          format-critical = "!!! {capactiy}% !!!";
+          format-icons = ["" "" "" "" ""];
+        };
 
         "niri/workspaces" = {
           disable-scroll = true;
