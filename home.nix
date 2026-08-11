@@ -20,9 +20,9 @@ in {
     lazygit
 
     gnomeExtensions.paperwm
-    #swaybg
-    #xwayland-satellite    
-    #font-awesome    
+    swaybg
+    xwayland-satellite    
+    font-awesome    
     pkgsold.gnomeExtensions.raccoon-launcher
     #neovim
     
@@ -41,9 +41,9 @@ in {
     usbutils
   ];
   
- # xdg.enable = true;
+  xdg.enable = true;
 
-  #xdg.configFile."nvim/init.vim".source = ./config/init.vim;
+  xdg.configFile."niri/config.kdl".source = ./config/config.kdl;
 
   programs.ghostty = {
     enable = true;
@@ -117,13 +117,13 @@ in {
   };
 
 # FOR NIRI
-#  programs.alacritty.enable = true;
-#  programs.fuzzel.enable = true;
-#  programs.swaylock.enable = true;
-#  programs.waybar.enable = true;
-#  services.mako.enable = true;
-#  services.swayidle.enable = true;
-#  services.polkit-gnome.enable = true;
+  programs.alacritty.enable = true;
+  programs.fuzzel.enable = true;
+  programs.swaylock.enable = true;
+  programs.waybar.enable = true;
+  services.mako.enable = true;
+  services.swayidle.enable = true;
+  services.polkit-gnome.enable = true;
 
 
   home.stateVersion = "26.05";

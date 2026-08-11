@@ -42,24 +42,24 @@
   services.xserver.enable = true;
 
   #enable niri and greetd lol
-  #programs.niri.enable = true;
-  #services.greetd = {
-  #  enable = true;
-  #  settings = {
-  #    default_session = {
-  #      command = "${config.programs.niri.package}/bin/niri-session";
-  #      user = "ethan";
-  #    };
-  #  };
-  #};
+  programs.niri.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${config.programs.niri.package}/bin/niri-session";
+        user = "ethan";
+      };
+    };
+  };
   
   #systemd.user.services.niri.enableDefaultPath = false;
 
 
   # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
+  #services.displayManager.gdm.enable = true;
   #services.displayManager.ly.enable = true;
-  services.desktopManager.gnome.enable = true;
+  #services.desktopManager.gnome.enable = true;
   
 
   # Configure keymap in X11
