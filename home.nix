@@ -25,7 +25,7 @@ in {
     gnomeExtensions.paperwm
     swaybg
     xwayland-satellite    
-    font-awesome_4    
+    #font-awesome_4    
     pkgsold.gnomeExtensions.raccoon-launcher
     #neovim
     
@@ -147,8 +147,17 @@ in {
         modules-center = [ "clock" ];
         modules-right = [ "temperature" "pulseaudio" "battery" ];
         "pulseaudio" = {
-          format = "volume: {volume}%";
+          format = "{volume}% {icon}";
+          format-muted = "";
           on-click = "pavucontrol";
+          format-icons = {
+            headphone = " ";
+            default = [" "  " "];
+          };
+        };
+        "temperature" = {
+          format = "{temperatureC}  ";
+          format-alt = "{temperatureF}  ";
         };
         "clock" = {
           format-alt = "{:%Y-%m-%d}";
@@ -162,15 +171,18 @@ in {
 
           format = "{capacity}% {icon}";
           format-full = "{capacity}% {icon}";
-          format-charging = "{capacity}% 󰃨";
-          format-plugged = "{capacity}% ";
+          format-charging = "{capacity}% 󰃨 ";
+          format-plugged = "{capacity}%  ";
           format-critical = "!!! {capactiy}% !!!";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [" " " " " " " " " "];
         };
 
         "niri/workspaces" = {
           disable-scroll = true;
           all-outputs = true;
+        };
+        "niri/window" = {
+          max-length = 50;
         };
         "custom/hello-from-waybar" = {
           format = "hello {}";
@@ -186,7 +198,7 @@ in {
       * {
         border: none;
         border-radius: 0;
-        font-family: Source Code Pro;
+        font-family: "JetBrainsMono Nerd Font", "FontAwesome";
       }
       window#waybar {
         background: #16191C;
@@ -195,6 +207,7 @@ in {
       #workspaces button {
         padding: 0 5px;
       }
+
     '';
   };
 

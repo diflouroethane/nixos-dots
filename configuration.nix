@@ -43,24 +43,24 @@
 
   #enable niri and greetd lol
   programs.niri.enable = true;
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${config.programs.niri.package}/bin/niri-session";
- #       user = "ethan";
-      };
-    };
-  };
+  #services.greetd = {
+   # enable = true;
+   # settings = {
+   #   default_session = {
+   #     command = "${config.programs.niri.package}/bin/niri-session";
+  #      user = "ethan";
+  #    };
+  #  };
+ # };
 
-  programs.regreet.enable = true;
+  #programs.regreet.enable = true;
   
   #systemd.user.services.niri.enableDefaultPath = false;
 
 
   # Enable the GNOME Desktop Environment.
   #services.displayManager.gdm.enable = true;
-  #services.displayManager.ly.enable = true;
+  services.displayManager.ly.enable = true;
   #services.desktopManager.gnome.enable = true;
   
 
@@ -97,6 +97,7 @@
   };
   
   fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
     font-awesome_4
   ];
 
