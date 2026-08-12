@@ -20,6 +20,12 @@ in {
     ncdu
     lazygit
     
+    btop
+
+    brightnessctl
+    killall
+    feh
+
     pavucontrol
 
     gnomeExtensions.paperwm
