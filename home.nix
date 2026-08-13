@@ -21,12 +21,15 @@ in {
     ncdu
     lazygit
     
+    libnotify
+
     btop
 
     brightnessctl
     killall
     feh
-
+    
+    playerctl
     pavucontrol
 
     gnomeExtensions.paperwm
@@ -65,6 +68,12 @@ in {
  # xdg.configFile."waybar/style.css".source = ./config/style.css;
   #xdg.configFile."niri/config.kdl".force = true;
   
+  services.swayosd = {
+    enable = true;
+    topMargin = 0.9;
+  };
+
+
   programs.ghostty = {
 
     enable = true;
