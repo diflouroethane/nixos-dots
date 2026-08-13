@@ -47,6 +47,8 @@ in {
     xz
     unzip
     
+    networkmanagerapplet
+
     pciutils
     usbutils
   ];
