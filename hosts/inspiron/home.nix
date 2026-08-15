@@ -1,16 +1,17 @@
 {config, pkgs, inputs, ...}: let
 
 pkgsold = inputs.nixpkgsnew.legacyPackages.x86_64-linux;
+user = "ethan"
 
 in {
-  home.username = "ethan";
-  home.homeDirectory = "/home/ethan";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   #home.pointerCursor = "Vanilla-DMZ"; 
   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
   imports = [
     #inputs.noctalia.homeModules.default
-    ./config/nvf.nix
-    ./config/niri/waybar.nix
+    ../../common/nvf.nix
+    ../../common/niri/waybar.nix
   ]; 
 #  home.file.".bashrc".source = ./.bashrc;
 
@@ -143,14 +144,23 @@ in {
     enableCompletion = true;
     shellAliases = {
       ls = "eza -la";
+      lock = "swaylock";
     };
   };
 
 # FOR NIRI
   programs.alacritty.enable = true;
   programs.fuzzel.enable = true;
-  programs.swaylock.enable = true;
-  
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      screenshots = true;
+      clock = true;
+      indicator = true;
+      effect-blur = "4x5";
+    };
+  }; 
 
   services.mako.enable = true;
   services.swayidle.enable = true;

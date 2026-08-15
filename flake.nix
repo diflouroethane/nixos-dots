@@ -23,7 +23,7 @@
 		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
-				./configuration.nix
+				./hosts/inspiron/default.nix
 				
 				agenix.nixosModules.default	
 				home-manager.nixosModules.home-manager
@@ -32,7 +32,7 @@
           home-manager.backupFileExtension = "backup";
 					home-manager.useUserPackages = true;
 					home-manager.extraSpecialArgs = {inherit inputs;};
-					home-manager.users.ethan = import ./home.nix;
+					home-manager.users.ethan = import ./hosts/inspiron/home.nix;
 					home-manager.sharedModules = [nvf.homeManagerModules.default];
 				}
 			];
