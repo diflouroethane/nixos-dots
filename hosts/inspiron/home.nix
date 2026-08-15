@@ -1,7 +1,7 @@
 {config, pkgs, inputs, ...}: let
 
 pkgsold = inputs.nixpkgsnew.legacyPackages.x86_64-linux;
-user = "ethan"
+user = "ethan";
 
 in {
   home.username = "${user}";
