@@ -17,3 +17,5 @@ then run `sudo nixos-rebuild switch --flake .#inspiron`
 
 # Credits
 the wallpapers in my `wallpapers/` directory come from both https://perfecthue.com and https://mechalove.me . they are not mine. if you use them, pleas maybe get them from the actual site. thanks.
+
+

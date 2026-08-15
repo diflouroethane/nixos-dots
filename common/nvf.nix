@@ -1,7 +1,7 @@
 {
   programs.nvf = {
     enable = true;
-  
+
     settings = {
       vim = {
         viAlias = false;
@@ -13,6 +13,19 @@
           softtabstop = 2;
           shiftwidth = 2;
         };
+        filetree.neo-tree.enable = true;
+        tabline.nvimBufferline.enable = true;
+        statusline.lualine.enable = true;
+        binds.whichKey.enable = true;
+        terminal.toggleterm = {
+          enable = true;
+          lazygit.enable = true;
+          setupOpts = {
+            direction = "horizontal";
+          };
+        };
+        dashboard.alpha.enable = true;
+        autocomplete.blink-cmp.enable = true;
       };
     };
   };
