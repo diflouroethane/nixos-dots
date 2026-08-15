@@ -131,7 +131,7 @@
 
   age.secrets = {
     wakatime = {
-      file = ./secrets/wakatime.age;
+      file = ../../secrets/wakatime.age;
       path = "/home/ethan/.wakatime.cfg";
       owner = "ethan";
     };

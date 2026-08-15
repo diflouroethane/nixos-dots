@@ -64,7 +64,7 @@ in {
   
 
   
-  xdg.configFile."niri/config.kdl".source = ./config/niri/niri.kdl;
+  xdg.configFile."niri/config.kdl".source = ../../common/niri/niri.kdl;
   #xdg.configFile."waybar/config.jsonc".source = ./config/waybar.jsonc;
  # xdg.configFile."waybar/style.css".source = ./config/style.css;
   #xdg.configFile."niri/config.kdl".force = true;
