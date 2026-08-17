@@ -6,7 +6,7 @@
 		agenix.url = "github:ryantm/agenix";
 		agenix.inputs.nixpkgs.follows = "nixpkgs";
 		nvf.url = "github:notashelf/nvf";
-    nvf.inputs.nixpkgs.follows = "nixpkgs";
+    	nvf.inputs.nixpkgs.follows = "nixpkgs";
 		#noctalia = {
 
 		#	url = "github:noctalia-dev/noctalia";
@@ -23,13 +23,13 @@
 		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
-				./hosts/inspiron/default.nix
+				./hosts/inspiron
 				
 				agenix.nixosModules.default	
 				home-manager.nixosModules.home-manager
 				{
 					home-manager.useGlobalPkgs = true;
-          home-manager.backupFileExtension = "backup";
+          			home-manager.backupFileExtension = "backup";
 					home-manager.useUserPackages = true;
 					home-manager.extraSpecialArgs = {inherit inputs;};
 					home-manager.users.ethan = import ./hosts/inspiron/home.nix;
@@ -37,6 +37,16 @@
 				}
 			];
 		};
+
+    nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        ./hosts/iso
+      ];
+    };
 		
+		nixosConfigurations.otabello = nixpkgs.lib.nixosSystem {}; #TODO: FIXME
 	};
 }
