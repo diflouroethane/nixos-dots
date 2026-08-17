@@ -1,6 +1,8 @@
 {pkgs, ...}:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "America/New_York";
   
   hardware.bluetooth.enable = true;
@@ -9,10 +11,6 @@
   
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-  
-  
-  nixpkgs.config.allowUnfree = true;
-  
   
   services.xserver.xkb.options = "caps:escape";
   services.libinput.enable = true;

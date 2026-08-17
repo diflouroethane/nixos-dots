@@ -20,7 +20,8 @@
 	};
 
 	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, ...}@inputs: {
-		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
+		
+    nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
 				./hosts/inspiron
@@ -38,6 +39,26 @@
 			];
 		};
 
+		nixosConfigurations.otabello = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        ./hosts/otabello
+
+        # agenix.nixosModules.default
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            backupFileExtension = "backup";
+            useUserPackages = true;
+            extraSpecialArgs = {inherit inputs;};
+            sharedModules = [nvf.homeManagerModules.default];
+          };
+        }
+      ];
+    }; #TODO: FIXME
+    
     nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
 
@@ -47,6 +68,5 @@
       ];
     };
 		
-		nixosConfigurations.otabello = nixpkgs.lib.nixosSystem {}; #TODO: FIXME
 	};
 }
