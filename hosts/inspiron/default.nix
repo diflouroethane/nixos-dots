@@ -5,26 +5,66 @@
 { config, lib, pkgs,inputs, ... }:
 
 {
+  networking.hostName = "inspiron"; # Define your hostname.
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      (import ../../modules/common/config.nix {inherit pkgs inputs;})
+      ../../modules/niri/niri.nix
+      ../../modules/gaming.nix
+      
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  ### ^^^EFI^^^
 
-  networking.hostName = "inspiron"; # Define your hostname.
+  environment.systemPackages = with pkgs; [
+    # git
+    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    # wget
+    # htop
+    inputs.agenix.packages."${system}".default
+  ];
+  
+  age.identityPaths = [
+    "/home/ethan/.ssh/id_ed25519"
+  ];
 
+  age.secrets = {
+    wakatime = {
+      file = ../../secrets/wakatime.age;
+      path = "/home/ethan/.wakatime.cfg";
+      owner = "ethan";
+    };
+  };
   # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-  hardware.bluetooth.enable = true;
-  services.power-profiles-daemon.enable = true;
-  services.upower.enable = true;
+  # networking.networkmanager.enable = true;
+  users.users.ethan = {
+    isNormalUser = true;
+    home = "/home/ethan";
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "input"
+    ]; # Enable ‘sudo’ for the user.
+    packages = with pkgs; [
+      tree
+    ];
+  };
+  
+  system.stateVersion = "26.05"; # Did you read the comment?
+  
+  
+  # services.power-profiles-daemon.enable = true;
+  # hardware.bluetooth.enable = true;
+  # services.upower.enable = true;
 
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  # time.timeZone = "America/New_York";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -39,10 +79,10 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   #enable niri and greetd lol
-  programs.niri.enable = true;
+  # programs.niri.enable = true;
   #services.greetd = {
    # enable = true;
    # settings = {
@@ -60,82 +100,47 @@
 
   # Enable the GNOME Desktop Environment.
   #services.displayManager.gdm.enable = true;
-  services.displayManager.ly.enable = true;
+  # services.displayManager.ly.enable = true;
   #services.desktopManager.gnome.enable = true;
   
+  # nixpkgs.config.allowUnfree = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "caps:escape";
+  # services.xserver.xkb.options = "caps:escape";
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
+  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ethan = {
-    isNormalUser = true;
-    home = "/home/ethan";
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "input"
-    ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-    ];
-  };
   
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-    font-awesome_4
-  ];
+  # fonts.packages = with pkgs; [
+  #   nerd-fonts.jetbrains-mono
+  #   font-awesome_4
+  # ];
 
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+  
 
 
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  # nix.settings.experimental-features = [ "nix-command" "flakes"];
 
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    git
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    htop
-    inputs.agenix.packages."${system}".default
-  ];
-  
-  age.identityPaths = [
-    "/home/ethan/.ssh/id_ed25519"
-  ];
-
-  age.secrets = {
-    wakatime = {
-      file = ../../secrets/wakatime.age;
-      path = "/home/ethan/.wakatime.cfg";
-      owner = "ethan";
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -148,18 +153,17 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-  nixpkgs.config.allowUnfree = true;
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = false;
+  # system.copySystemConfiguration = false;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -178,7 +182,6 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "26.05"; # Did you read the comment?
 
 }
 
