@@ -11,7 +11,7 @@
     [ # Include the results of the hardware scan.
 
       ./hardware-configuration.nix
-      (import ../../modules/defaults/common/with-niri-config.nix)
+      (import ../../modules/defaults/niri {inherit pkgs;})
       ../../modules/gaming.nix
 
       # (import ../../modules/common/config.nix {inherit pkgs inputs;})
