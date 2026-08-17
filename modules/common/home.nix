@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+  
+  home.file.".wallpapers".source = ./wallpapers;
+
+  
   home.packages = with pkgs; [
     fastfetch
     # nnn

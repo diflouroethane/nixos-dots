@@ -7,10 +7,10 @@ in {
   home.username = "${user}";
   home.homeDirectory = "/home/${user}";
   #home.pointerCursor = "Vanilla-DMZ"; 
-  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+  
   imports = [
     #inputs.noctalia.homeModules.default
-    (import ../../defaults/with-niri.nix {inherit pkgs;})
+    (import ../../modules/defaults/with-niri.nix {inherit pkgs;})
     # ../../modules/nvf.nix
     # ../../modules/niri/waybar.nix
     # (import ../../modules/niri/home.nix {inherit pkgs;})
@@ -20,6 +20,7 @@ in {
   ]; 
 #  home.file.".bashrc".source = ./.bashrc;
 
+  #define unique packages you want. defaults are in ../../modules/common/home.nix.
   home.packages = with pkgs; [
     # fastfetch
     nnn
@@ -62,7 +63,6 @@ in {
     # usbutils
   ];
   
-  home.file.".wallpapers".source = ./wallpapers;
 
     
   xdg.enable = true;
@@ -144,14 +144,14 @@ in {
 #  #   enable = true;
 # #  };
 
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    shellAliases = {
-      ls = lib.mkForce "eza -la --icons";
-      lock = "swaylock";
-    };
-  };
+  # programs.bash = {
+  #   enable = true;
+  #   enableCompletion = true;
+  #   shellAliases = {
+  #     ls = lib.mkForce "eza -la --icons";
+  #     lock = "swaylock";
+  #   };
+  # };
 
 # FOR NIRI
   # programs.alacritty.enable = true;
