@@ -10,7 +10,7 @@ in {
   
   imports = [
     #inputs.noctalia.homeModules.default
-    (import ../../modules/defaults/with-niri.nix {inherit pkgs;})
+    (import ../../modules/defaults/with-niri-home.nix {inherit pkgs;})
     # ../../modules/nvf.nix
     # ../../modules/niri/waybar.nix
     # (import ../../modules/niri/home.nix {inherit pkgs;})
