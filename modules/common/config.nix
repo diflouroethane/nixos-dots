@@ -13,7 +13,7 @@
   
   nixpkgs.config.allowUnfree = true;
   
-  services.xserver.enable = true;
+  
   services.xserver.xkb.options = "caps:escape";
   services.libinput.enable = true;
 

@@ -37,6 +37,15 @@
 				}
 			];
 		};
+
+    nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+
+      modules = [
+        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+        ./hosts/iso
+      ];
+    };
 		
 		nixosConfigurations.otabello = nixpkgs.lib.nixosSystem {}; #TODO: FIXME
 	};
