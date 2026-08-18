@@ -57,7 +57,7 @@
           };
         }
       ];
-    }; #TODO: FIXME
+    };
     
     nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};

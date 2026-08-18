@@ -15,6 +15,10 @@
   services.xserver.xkb.options = "caps:escape";
   services.libinput.enable = true;
 
+  services.udisks2.enable = true;
+
+  services.gvfs.enable = true;
+
   services.printing.enable = true;
 
   services.pipewire = {
