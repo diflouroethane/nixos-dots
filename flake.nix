@@ -7,6 +7,8 @@
 		agenix.inputs.nixpkgs.follows = "nixpkgs";
 		nvf.url = "github:notashelf/nvf";
     	nvf.inputs.nixpkgs.follows = "nixpkgs";
+
+		nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
 		#noctalia = {
 
 		#	url = "github:noctalia-dev/noctalia";
@@ -19,13 +21,14 @@
 
 	};
 
-	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, ...}@inputs: {
+	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, ...}@inputs: {
 		
     nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
 				./hosts/inspiron
 				
+				nix-flatpak.nixosModules.nix-flatpak
 				agenix.nixosModules.default	
 				home-manager.nixosModules.home-manager
 				{

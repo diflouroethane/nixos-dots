@@ -11,6 +11,7 @@ in {
   imports = [
     #inputs.noctalia.homeModules.default
     (import ../../modules/defaults/niri/home.nix {inherit pkgs;})
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # ../../modules/nvf.nix
     # ../../modules/niri/waybar.nix
     # (import ../../modules/niri/home.nix {inherit pkgs;})
@@ -19,6 +20,14 @@ in {
     
   ]; 
 #  home.file.".bashrc".source = ./.bashrc;
+
+  services.flatpak.update.auto.enable = false;
+
+  services.flatpak.packages = [
+    "com.inklestudios.Inky"
+  ];
+
+  # enable flatpaks and manage them with nix-flatpak
 
   #define unique packages you want. defaults are in ../../modules/common/home.nix.
   home.packages = with pkgs; [

@@ -13,11 +13,13 @@
       ./hardware-configuration.nix
       (import ../../modules/defaults/niri {inherit pkgs;})
       ../../modules/gaming.nix
-
+      
       # (import ../../modules/common/config.nix {inherit pkgs inputs;})
       # ../../modules/niri/niri.nix
       
     ];
+
+  services.flatpak.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -29,6 +31,7 @@
     # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # wget
     # htop
+    # brush
     inputs.agenix.packages."${system}".default
   ];
   
@@ -45,7 +48,10 @@
   };
   # Configure network connections interactively with nmcli or nmtui.
   # networking.networkmanager.enable = true;
+
+
   users.users.ethan = {
+
     isNormalUser = true;
     home = "/home/ethan";
     extraGroups = [

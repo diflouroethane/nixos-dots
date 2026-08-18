@@ -8,7 +8,7 @@ in {
   imports = [
     ../../modules/nvf.nix
     (import ../../modules/gnome/home.nix {inherit pkgs;})
-    (import ../../common/home.nix {inherit pkgs;})
+    (import ../../modules/common/home.nix {inherit pkgs;})
   ];
 
   

@@ -7,7 +7,7 @@
     [
         ./hardware-configuration.nix
         ../../modules/gnome
-        (import ../../common/config.nix {inherit pkgs;})
+        (import ../../modules/common/config.nix {inherit pkgs;})
     ];
 
     #not EFI, so use this instead
@@ -26,7 +26,7 @@
             tree
             axel
         ];
-    }
+    };
 
     home-manager.users.user = import ./home.nix;
 
