@@ -25,7 +25,7 @@
 
 	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, blender-bin, ...}@inputs: {
 		
-    nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
+		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
 			modules = [
 				./hosts/inspiron
@@ -35,7 +35,7 @@
 				home-manager.nixosModules.home-manager
 				{
 					home-manager.useGlobalPkgs = true;
-          			home-manager.backupFileExtension = "backup";
+					home-manager.backupFileExtension = "backup";
 					home-manager.useUserPackages = true;
 					home-manager.extraSpecialArgs = {inherit inputs;};
 					home-manager.users.ethan = import ./hosts/inspiron/home.nix;
@@ -45,33 +45,51 @@
 		};
 
 		nixosConfigurations.otabello = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+		specialArgs = {inherit inputs;};
 
-      modules = [
-        ./hosts/otabello
+		modules = [
+			./hosts/otabello
 
-        # agenix.nixosModules.default
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            backupFileExtension = "backup";
-            useUserPackages = true;
-            extraSpecialArgs = {inherit inputs;};
-            sharedModules = [nvf.homeManagerModules.default];
-          };
-        }
-      ];
-    };
-    
-    nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+			# agenix.nixosModules.default
+			home-manager.nixosModules.home-manager
+			{
+			home-manager = {
+				useGlobalPkgs = true;
+				backupFileExtension = "backup";
+				useUserPackages = true;
+				extraSpecialArgs = {inherit inputs;};
+				sharedModules = [nvf.homeManagerModules.default];
+			};
+			}
+		];
+		};
 
-      modules = [
-        "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
-        ./hosts/iso
-      ];
-    };
+		nixosConfigurations.tarraco = nixpkgs.lib.nixosSystem {
+		specialArgs = {inherit inputs;};
+
+		modules = [
+			./hosts/tarraco
+
+			home-manager.nixosModules.home-manager
+			{
+				home-manager = {
+					useGlobalPkgs = true;
+					backupFileExtension = "backup";
+					useUserPackages = true;
+					extraSpecialArgs = {inherit inputs;};
+					users.dfe = ./hosts/tarraco/home.nix;
+				};
+			}
+		];
+		};
 		
+		nixosConfigurations.iso = nixpkgs.lib.nixosSystem {
+		specialArgs = {inherit inputs;};
+
+		modules = [
+			"${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+			./hosts/iso
+		];
+		};
 	};
 }
