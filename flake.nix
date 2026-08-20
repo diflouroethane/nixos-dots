@@ -9,6 +9,8 @@
     	nvf.inputs.nixpkgs.follows = "nixpkgs";
 
 		nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
+
+		blender-bin.url = "https://flakehub.com/f/edolstra/blender-bin/*";
 		#noctalia = {
 
 		#	url = "github:noctalia-dev/noctalia";
@@ -21,7 +23,7 @@
 
 	};
 
-	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, ...}@inputs: {
+	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, blender-bin, ...}@inputs: {
 		
     nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};

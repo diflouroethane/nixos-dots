@@ -23,6 +23,23 @@
         "type": "github"
       }
     },
+    "blender-bin": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1766785730,
+        "narHash": "sha256-nkV8QHO5bp6C3a/dRjYxCV1EJtI/R4rSU4RAuunL+Ss=",
+        "rev": "32a73188c4026cea3f8ed97078ace45bf9f7f578",
+        "revCount": 151,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/edolstra/blender-bin/1.0.21/019b5ca3-dbde-7440-9e6b-f78ba88d11c8/source.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://flakehub.com/f/edolstra/blender-bin/%2A"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -136,6 +153,21 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1733808091,
+        "narHash": "sha256-KWwINTQelKOoQgrXftxoqxmKFZb9pLVfnRvK270nkVk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "a0f3e10d94359665dba45b71b4227b0aeb851f8e",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-24.11",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1785386831,
         "narHash": "sha256-sPS3CaXH8RAT3FZRuy4VcV47iuYIWMMfa0GbyJKC3o4=",
         "owner": "NixOS",
@@ -191,9 +223,10 @@
     "root": {
       "inputs": {
         "agenix": "agenix",
+        "blender-bin": "blender-bin",
         "home-manager": "home-manager_2",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgsnew": "nixpkgsnew",
         "nvf": "nvf"
       }

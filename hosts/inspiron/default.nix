@@ -32,7 +32,9 @@
     # wget
     # htop
     # brush
-    inputs.agenix.packages."${system}".default
+    inputs.agenix.packages."${stdenv.hostPlatform.system}".default
+    blender
+    # inputs.blender-bin.packages.${stdenv.hostPlatform.system}.default
   ];
   
   age.identityPaths = [

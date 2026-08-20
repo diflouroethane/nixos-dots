@@ -10,7 +10,7 @@ in {
   
   imports = [
     #inputs.noctalia.homeModules.default
-    (import ../../modules/defaults/niri/home.nix {inherit pkgs;})
+    (import ../../modules/defaults/niri/home.nix {inherit pkgs config;})
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # ../../modules/nvf.nix
     # ../../modules/niri/waybar.nix
@@ -20,6 +20,13 @@ in {
     
   ]; 
 #  home.file.".bashrc".source = ./.bashrc;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-pipewire-audio-capture
+    ];
+  };
 
   services.flatpak.update.auto.enable = false;
 
@@ -34,6 +41,8 @@ in {
     # fastfetch
     nnn
     prismlauncher
+
+    aseprite
 
     localsend
     godot_4_7

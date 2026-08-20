@@ -68,8 +68,10 @@
 
   programs.git = {
     enable = true;
-    userName = "Ethan Francis";
-    userEmail = "ethanfrancis577@gmail.com";
+    settings = {
+      user.name = "Ethan Francis";
+      user.email = "ethanfrancis577@gmail.com";
+    };
   };
 
   programs.starship = {
