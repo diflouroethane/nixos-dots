@@ -78,8 +78,10 @@
 					useUserPackages = true;
 					extraSpecialArgs = {inherit inputs;};
 					users.dfe = ./hosts/tarraco/home.nix;
+					sharedModules = [nvf.homeManagerModules.default];
 				};
 			}
+
 		];
 		};
 		

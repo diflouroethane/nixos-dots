@@ -14,7 +14,7 @@
 
         nvidiaSettings = true;
 
-        package = config.lib.kernelPackages.nvidiaPackages.stable;
+        package = config.boot.kernelPackages.nvidiaPackages.stable;
 
         prime = {
             offload = {
@@ -24,8 +24,8 @@
 
             #RUN nix shell nixpkgs#pciutils -c lspci -D -d ::03xx to get the values!!!
 
-            nvidiaBusId = "REPLACEME";
-            amdgpuBusId = "REPLACEME";
+            nvidiaBusId = "PCI:1@0:0:0";
+            amdgpuBusId = "PCI:74@0:0:0";
         };
     };
 }

@@ -1,6 +1,6 @@
-{pkgs, config, ...}:
+{pkgs, config, user, ...}:
 {
-  xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/ethan/.dotfiles/modules/niri/niri.kdl";
+  xdg.configFile."niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/${user}/.dotfiles/modules/niri/niri.kdl";
 
   services.swayosd = {
     enable = true;
