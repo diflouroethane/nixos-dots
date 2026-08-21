@@ -15,6 +15,7 @@ in {
         localsend
         godot_4_7
         networkmanagerapplet
+        aseprite
     ];
     
     programs.waybar.settings.mainBar."battery".bat = lib.mkForce "BAT1";
