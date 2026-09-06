@@ -15,6 +15,7 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.initrd.luks.devices."luks-a83d6c13-43c6-4be2-ae4d-12f24f3e4530".device = "/dev/disk/by-uuid/a83d6c13-43c6-4be2-ae4d-12f24f3e4530";
 
+    networking.networkmanager.wifi.powersave = false;
 
     environment.systemPackages = with pkgs; [
         nvtopPackages.full
@@ -29,9 +30,11 @@
             "input"
         ];    
     };
-     
+    
+    hardware.xone.enable = true;
+
     services.pipewire = {
-	alsa.enable = true;
+	      alsa.enable = true;
         alsa.support32Bit = true;
     };
 
