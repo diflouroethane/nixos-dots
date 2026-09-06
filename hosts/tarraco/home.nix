@@ -17,6 +17,8 @@ in {
         networkmanagerapplet
         aseprite
         zola
+        crawl
+        crawlTiles
     ];
     
     programs.waybar.settings.mainBar."battery".bat = lib.mkForce "BAT1";
