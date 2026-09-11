@@ -15,7 +15,11 @@
     boot.loader.efi.canTouchEfiVariables = true;
     boot.initrd.luks.devices."luks-a83d6c13-43c6-4be2-ae4d-12f24f3e4530".device = "/dev/disk/by-uuid/a83d6c13-43c6-4be2-ae4d-12f24f3e4530";
 
+    hardware.enableRedistributableFirmware = true;
+
     networking.networkmanager.wifi.powersave = false;
+    # networking.networkmanager.wifi.backend = "iwd";
+
 
     environment.systemPackages = with pkgs; [
         nvtopPackages.full
