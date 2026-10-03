@@ -2,12 +2,12 @@
 
 {
     networking.hostName = "tarraco";
-
+    programs.gamemode.enable = true;
     imports =
     [
         ./hardware-configuration.nix
         (import ../../modules/defaults/niri {inherit pkgs;})
-        ../../modules/gaming.nix
+        (import ../../modules/gaming.nix {inherit pkgs;})
         (import ../../modules/nvidia/laptop.nix {inherit pkgs config;})
     ];
 
@@ -23,6 +23,8 @@
 
     environment.systemPackages = with pkgs; [
         nvtopPackages.full
+        vulkan-tools
+        discord
     ];
 
     users.users.dfe = {
