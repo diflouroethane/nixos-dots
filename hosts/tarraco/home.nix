@@ -32,7 +32,7 @@ in {
 
 
     xdg.enable = true;
-    # xdg.configFile."niri/config.kdl".source = lib.mkForce {config.lib.file.mkOutOfStoreSymlink "/home/dfe/.dotfiles/modules/niri/niri.kdl";}
+    xdg.configFile."niri/monitors.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/dfe/.dotfiles/hosts/tarraco/screens.kdl";
 
     home.stateVersion = "26.05";
 }

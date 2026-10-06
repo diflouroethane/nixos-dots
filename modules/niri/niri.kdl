@@ -75,14 +75,14 @@ input {
 // Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-output "HDMI-A-2" {
-  mode "1920x1080@60.000"
-  
-  scale 1
-
-  
-  // position x=1920 y=0
-}
+// output "HDMI-A-2" {
+//   mode "1920x1080@60.000"
+//
+//   scale 1
+//
+//
+//   // position x=1920 y=0
+// }
 
 
 output "eDP-1" {
@@ -646,3 +646,5 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+include optional=true "monitors.kdl"
