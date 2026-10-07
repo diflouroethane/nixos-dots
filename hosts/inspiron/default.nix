@@ -47,6 +47,12 @@
       path = "/home/ethan/.wakatime.cfg";
       owner = "ethan";
     };
+
+    todo = {
+      file = ../../secrets/todo.age;
+      path = "/home/ethan/.todo.txt";
+      owner = "ethan";
+    };
   };
   # Configure network connections interactively with nmcli or nmtui.
   # networking.networkmanager.enable = true;

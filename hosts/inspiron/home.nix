@@ -10,7 +10,7 @@ in {
   
   imports = [
     #inputs.noctalia.homeModules.default
-    (import ../../modules/defaults/niri/home.nix {inherit pkgs config;})
+    (import ../../modules/defaults/niri/home.nix {inherit pkgs config user;})
     inputs.nix-flatpak.homeManagerModules.nix-flatpak
     # ../../modules/nvf.nix
     # ../../modules/niri/waybar.nix
@@ -37,10 +37,10 @@ in {
   #define unique packages you want. defaults are in ../../modules/common/home.nix.
   home.packages = with pkgs; [
     # fastfetch
-    nnn
+    # nnn
     prismlauncher
 
-    aseprite
+    # aseprite
 
     localsend
     godot_4_7
@@ -91,6 +91,10 @@ in {
       bbenoist.nix
     ];
   };
+
+  programs.bash.bashrcExtra = ''
+    cat ~/.todo.txt
+  '';
 
   dconf.settings."org/gnome/shell" = {
     disable-user-extensions = false;
