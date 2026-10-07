@@ -12,7 +12,7 @@
 
       ./hardware-configuration.nix
       (import ../../modules/defaults/niri {inherit pkgs;})
-      ../../modules/gaming.nix
+      # ../../modules/gaming.nix
       
       # (import ../../modules/common/config.nix {inherit pkgs inputs;})
       # ../../modules/niri/niri.nix
