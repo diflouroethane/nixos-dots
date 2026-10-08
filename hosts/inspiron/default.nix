@@ -12,7 +12,7 @@
 
       ./hardware-configuration.nix
       (import ../../modules/defaults/niri {inherit pkgs;})
-      ../../modules/gaming.nix
+      # ../../modules/gaming.nix
       
       # (import ../../modules/common/config.nix {inherit pkgs inputs;})
       # ../../modules/niri/niri.nix
@@ -45,6 +45,12 @@
     wakatime = {
       file = ../../secrets/wakatime.age;
       path = "/home/ethan/.wakatime.cfg";
+      owner = "ethan";
+    };
+
+    todo = {
+      file = ../../secrets/todo.age;
+      path = "/home/ethan/.todo.txt";
       owner = "ethan";
     };
   };

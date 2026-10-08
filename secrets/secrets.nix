@@ -4,4 +4,5 @@ let
 in
 {
   "wakatime.age".publicKeys = [ethan];
+  "todo.age".publicKeys = [ethan];
 }
