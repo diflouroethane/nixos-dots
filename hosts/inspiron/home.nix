@@ -82,7 +82,9 @@ in {
 
     
   xdg.enable = true;
-  
+  xdg.configFile."niri/monitors.kdl".source = config.lib.file.mkOutOfStoreSymlink "/home/${user}/.dotfiles/hosts/inspiron/screens.kdl";
+
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
