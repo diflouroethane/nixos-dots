@@ -19,7 +19,7 @@
 
     networking.networkmanager.wifi.powersave = false;
     # networking.networkmanager.wifi.backend = "iwd";
-
+    programs.xwayland.enable = true;
 
     environment.systemPackages = with pkgs; [
         nvtopPackages.full

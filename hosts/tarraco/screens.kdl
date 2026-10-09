@@ -5,3 +5,12 @@ output "HDMI-A-2" {
 }
 
 // use niri msg outputs
+
+window-rule {
+  match title="DEBUG"
+  focus-ring {
+    off
+  }
+  
+  open-floating true
+}
