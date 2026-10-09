@@ -5,3 +5,8 @@ output "HDMI-A-2" {
 }
 
 // use niri msg outputs
+
+// ovveride default terminal because this is a bad computer :P
+binds {
+  Mod+Return hotkey-overlay-title="(overwritten) open terminal: alacritty" {spawn "alacritty"; }
+}

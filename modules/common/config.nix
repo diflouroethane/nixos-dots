@@ -41,6 +41,7 @@
     wget
     htop
     libinput
+    nix-output-monitor
   ];
 
   services.openssh.enable = true;
