@@ -1,6 +1,7 @@
 {config, lib, pkgs, inputs, ...}:
 
 {
+    nixpkgs.overlays = [inputs.millennium.overlays.default];
     networking.hostName = "tarraco";
     programs.gamemode.enable = true;
     imports =
@@ -14,9 +15,18 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.initrd.luks.devices."luks-a83d6c13-43c6-4be2-ae4d-12f24f3e4530".device = "/dev/disk/by-uuid/a83d6c13-43c6-4be2-ae4d-12f24f3e4530";
+    hardware.logitech.wireless.enable = true;  
+    boot.kernelParams = ["usbcore.autosuspend=-1"];
 
     hardware.enableRedistributableFirmware = true;
-
+    boot.extraModprobeConfig = ''
+      options usbhid quirks=0x046D:0x4074:0x400
+    ''; 
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    services.blueman.enable = true;
     networking.networkmanager.wifi.powersave = false;
     # networking.networkmanager.wifi.backend = "iwd";
     programs.xwayland.enable = true;

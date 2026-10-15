@@ -12,6 +12,8 @@
 
 		blender-bin.url = "https://flakehub.com/f/edolstra/blender-bin/*";
 		#noctalia = {
+    
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
 		#	url = "github:noctalia-dev/noctalia";
 		#	inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +25,7 @@
 
 	};
 
-	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, blender-bin, ...}@inputs: {
+	outputs = {self, nixpkgs,nixpkgsnew, home-manager, agenix, nvf, nix-flatpak, blender-bin, millennium, ...}@inputs: {
 		
 		nixosConfigurations.inspiron = nixpkgs.lib.nixosSystem {
 			specialArgs = {inherit inputs;};
