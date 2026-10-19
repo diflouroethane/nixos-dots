@@ -19,6 +19,7 @@ in {
         zola
         crawl
         crawlTiles
+        blender
     ];
     
     programs.waybar.settings.mainBar."battery".bat = lib.mkForce "BAT1";
