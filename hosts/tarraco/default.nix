@@ -1,7 +1,7 @@
 {config, lib, pkgs, inputs, ...}:
 
 {
-    nixpkgs.overlays = [inputs.millennium.overlays.default];
+    # nixpkgs.overlays = [inputs.millennium.overlays.default];
     networking.hostName = "tarraco";
     programs.gamemode.enable = true;
     imports =
