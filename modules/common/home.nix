@@ -88,6 +88,7 @@
     shellAliases = {
       ls = "eza -la";
       lock = "swaylock";
+      now = "date +\"%H:%M:%S on %A, %d of %B.\"";
     };
   };
 

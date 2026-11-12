@@ -19,11 +19,13 @@ in {
         zola
         crawl
         crawlTiles
+        calibre
+        strawberry
         blender
     ];
     
     programs.waybar.settings.mainBar."battery".bat = lib.mkForce "BAT1";
-    
+     
     programs.obs-studio = {
     enable = true;
     plugins = with pkgs.obs-studio-plugins; [
